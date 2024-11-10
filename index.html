@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <!-- Icon -->
+  <link rel="icon" href="https://cdn.glitch.global/431b15b8-c78d-4085-990f-e1be13d9eba0/iconss.png?v=1731225006139" type="icon">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+      /* ASET */
+      /* ASET */
+      /* ASET */
+      :root {
+      --border-gradient-onyx: linear-gradient(
+        to bottom right, 
+        hsl(0, 0%, 25%) 0%, 
+        hsla(0, 0%, 25%, 0) 50%
+      );
+      --16: linear-gradient(
+        to right, 
+        #b7ff02, 
+        #8aab35
+      );
+      --jet: hsl(0, 0%, 22%);
+      --onyx: hsl(240, 1%, 17%);
+      --eerie-black-2: hsl(240, 2%, 12%);
+      --smoky-black: hsl(0, 0%, 7%);
+      --1: hsl(0, 0%, 98%);
+      --light-gray: hsl(0, 0%, 84%);
+      --17: #b7ff02;
+
+      --fs-1: 24px;
+      --fs-2: 18px;
+      --fs-3: 17px;
+      --fs-5: 15px;
+      --fs-6: 14px;
+      --fs-7: 13px;
+      --fs-8: 11px;
+      --fw-300: 300;
+      --fw-400: 400;
+      --fw-500: 500;
+      --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+      --transition-1: 0.25s ease;
+      }
+      /* ASET */
+      /* ASET */
+      /* ASET */
+
+      *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      a { text-decoration: none; }
+
+      li { list-style: none; }
+
+      img, ion-icon, a, button, time, span { display: block; }
+
+      button {
+      font: inherit;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      }
+
+      :focus { outline-color: var(--16); }
+
+      html { font-family: 'Poppins', sans-serif; }
+
+      body { background: var(--smoky-black); overflow-x: hidden;}
+
+      article {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 20px;
+      padding: 15px;
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+      }
+
+      .icon-box {
+      position: relative;
+      background: var(--border-gradient-onyx);
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: var(--17);
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+      }
+
+      .icon-box::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--eerie-black-2);
+      border-radius: inherit;
+      z-index: -1;
+      }
+
+      .icon-box ion-icon { --ionicon-stroke-width: 35px; }
+
+      article { display: none; }
+
+      article.active {
+      display: block;
+      animation: fade 0.5s ease backwards;
+      }
+
+      @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+      }
+
+      .h2,
+      .h3,
+      .h4,
+      .h5 {
+      color: var(--1);
+      text-transform: capitalize;
+      }
+      .h2 { font-size: var(--fs-1); }
+      .h3 { font-size: var(--fs-2); }
+      .h4 { font-size: var(--fs-4); }
+      .h5 {
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+      }
+
+      .article-title {
+      position: relative;
+      padding-bottom: 7px;
+      }
+
+      .article-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: var(--16);
+      border-radius: 3px;
+      }
+
+      /* WEB PAGE SETTINGS */
+      /* WEB PAGE SETTINGS */
+      /* WEB PAGE SETTINGS */
+      ::-webkit-scrollbar {
+      width: 4px; 
+      }
+      ::-webkit-scrollbar-track {
+      background: var(--onyx);
+      border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+      background: var(--17);
+      border-radius: 5px;
+      }
+      ::-webkit-scrollbar-button {width: 20px;}
+      ::selection {
+      background: var(--17);
+      color: var(--smoky-black);
+      }
+      /* WEB PAGE SETTINGS */
+      /* WEB PAGE SETTINGS */
+      /* WEB PAGE SETTINGS */
+
+
+      /* MAIN */
+      /* MAIN */
+      /* MAIN */
+      main {
+      margin: 15px 12px;
+      margin-bottom: 75px;
+      min-width: 259px;
+      }
+      /* MAIN */
+      /* MAIN */
+      /* MAIN */
+      
+      /* NAVBAR */
+      /* NAVBAR */
+      /* NAVBAR */
+      .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: hsla(240, 1%, 17%, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--jet);
+      border-radius: 12px 12px 0 0;
+      box-shadow: var(--shadow-1);
+      z-index: 5;
+      }
+      .navbar-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      }
+      .navbar-link {
+      color: var(--light-gray);
+      font-size: var(--fs-8);
+      padding: 20px 7px;
+      transition: color var(--transition-1);
+      }
+
+      .navbar-link:hover,
+      .navbar-link:focus { color: var(--light-gray); }
+      .navbar-link.active { color: var(--17); }
+      /* NAVBAR */
+      /* NAVBAR */
+      /* NAVBAR */
+
+      /* PROFILE */
+      /* PROFILE */
+      /* PROFILE */
+      .article-title { margin-bottom: 30px; }
+      .biodata { margin-bottom: 30px; }
+      .biodata .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      }
+      .biodata-list {
+      font-size: var(--fs-6);
+      margin-left: 45px;
+      }
+      .biodata-item { position: relative; }
+      .biodata-item:not(:last-child) { margin-bottom: 20px; }
+      .biodata-item-title {
+      font-size: var(--fs-6);
+      line-height: 1.3;
+      margin-bottom: 7px;
+      }
+      .biodata-list span {
+      color: var(--17);
+      font-weight: var(--fw-400);
+      line-height: 1.6;
+      }
+      .biodata-list span .link-biodata{color: var(--17);}
+
+      .biodata-item:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: -30px;
+      width: 1px;
+      height: calc(100% + 50px);
+      background: var(--jet);
+      }
+      .biodata-item::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -33px;
+      height: 6px;
+      width: 6px;
+      background: var(--16);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--jet);
+      }
+      /* PROFILE */
+      /* PROFILE */
+      /* PROFILE */
+     
+      /*-----------------------------------*\
+      #RESPONSIVE
+      \*-----------------------------------*/
+
+
+      /* responsive larger than 580px screen */
+      @media (min-width: 580px) {
+      .article-title {
+        font-weight: var(--fw-600);
+        padding-bottom: 15px;
+      }
+      .article-title::after {
+        width: 40px;
+        height: 5px;
+      }
+      .icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 18px;
+      }
+      main {
+        margin-top: 40px;
+        margin-bottom: 100px;
+      }
+     
+      .navbar { border-radius: 20px 20px 0 0; }
+      .navbar-list { gap: 20px; }
+      .navbar-link { --fs-8: 14px; }
+   
+      .biodata-list { margin-left: 65px; }
+      .biodata-item:not(:last-child)::before { left: -40px; }
+      .biodata-item::after {
+        height: 8px;
+        width: 8px;
+        left: -43px;
+      }
+      }
+
+
+      /* responsive larger than 1024px screen */
+      @media (min-width: 1024px) {
+      main { 
+        margin-bottom: 60px; 
+      }
+      .main-content {
+        position: relative;
+        width: max-content;
+        margin: auto;
+      }
+      .navbar {
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        width: max-content;
+        border-radius: 0 20px;
+        padding: 0 20px;
+        box-shadow: none;
+      }
+      .navbar-list {
+        gap: 30px;
+        padding: 0 20px;
+      }
+      .navbar-link { font-weight: var(--fw-500); }
+      }
+
+      /* responsive larger than 1250px screen */
+      @media (min-width: 1250px) {
+      article { min-height: 100%; }
+      main {
+        max-width: 1200px;
+        margin-inline: auto;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 25px;
+      }
+      .main-content {
+        min-width: 75%;
+        width: 75%;
+        margin: 0;
+      }
+
+      }
+  </style>
+</head>
+
+<body>
+
+ <!-- MAIN -->
+  <main>
+    
+
+    <div class="main-content">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+            <li class="navbar-item">
+              <button class="navbar-link  active" data-nav-link>1</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>2</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>3</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>4</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>5</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>6</button>
+            </li>
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>7</button>
+            </li>
+        </ul>
+
+      </nav>
+      <!-- NAVBAR -->
+
+      <!-- PROFILE 1 -->
+      <article class="1  active" data-page="1">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 1</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Aaron</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="https://www.instagram.com/__aaronjordan" class="link-biodata">@__aaronjordan</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="https://www.tiktok.com/@.haiaaron?_t=8rGt0sSor9U&_r=1" class="link-biodata">.haiaaron</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="https://jordan10001.github.io/tree/" class="link-biodata">Aaron link</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+      <!-- PROFILE 1 -->
+
+
+
+
+     
+      <!-- PROFILE 2 -->
+      <article class="2" data-page="2">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 2</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Edbert</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+      <!-- PROFILE 2 -->
+
+
+
+
+     <!-- PROFILE 3 -->
+      <article class="3" data-page="3">
+        <header>
+          <h2 class="h2 article-title">PROFILE 3</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Brandon</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!-- PROFILE 4 -->
+      <article class="4" data-page="4">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 4</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Mario</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+      <!-- PROFILE 4 -->
+
+
+
+
+      <!-- PROFILE 5 -->
+      <article class="5" data-page="5">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 5</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Sean</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+      <!-- PROFILE 5 -->
+
+
+
+      <!-- PROFILE 6 -->
+      <article class="6" data-page="6">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 6</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Felix</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+      <!-- PROFILE 6 -->
+
+      <!-- PROFILE 7 -->
+      <article class="7" data-page="7">
+
+        <header>
+          <h2 class="h2 article-title">PROFILE 7</h2>
+        </header>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3 class="h3">Profile</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-person"> Name : </i></h4>
+              <span>Jason</span>
+              
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-cake2"> Date of birth : </i></h4>
+              <span>XX - XX - XXXX</span>
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="biodata">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="bi bi-threads"></i>
+            </div>
+            <h3 class="h3">Social Media</h3>
+          </div>
+
+          <ol class="biodata-list">
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-instagram"> Instagram : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-tiktok"> Tiktok : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+            <li class="biodata-item">
+              <h4 class="h4 biodata-item-title"><i class="bi bi-signpost"> Linktree : </i></h4>
+              <span><a href="#" class="link-biodata">XXXX</a></span>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+       <!--PROFILE 7  -->
+
+    </div>
+
+  </main>
+
+
+  <script>
+    
+      const navigationLinks = document.querySelectorAll("[data-nav-link]");
+      const pages = document.querySelectorAll("[data-page]");
+
+      for (let i = 0; i < navigationLinks.length; i++) {
+        navigationLinks[i].addEventListener("click", function () {
+
+          for (let i = 0; i < pages.length; i++) {
+            if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+              pages[i].classList.add("active");
+              navigationLinks[i].classList.add("active");
+              window.scrollTo(0, 0);
+            } else {
+              pages[i].classList.remove("active");
+              navigationLinks[i].classList.remove("active");
+            }
+          }
+
+        });
+      }
+  </script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
